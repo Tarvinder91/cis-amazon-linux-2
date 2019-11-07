@@ -12,3 +12,9 @@
     - section-3
     - "3.5.3"
     - scored
+    
+- name: save iptables              # save previous configuration
+  command: iptables-save
+  become: true
+
+    
