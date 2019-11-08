@@ -12,9 +12,26 @@
     - section-3
     - "3.5.3"
     - scored
-    
-- name: save iptables              # save previous configuration
-  command: iptables-save
+ 
+- name: iptables-services is to be installed on amazon linux 2 for proper management of iptables
+  yum:
+    name: "iptables-services"
+    state: latest
+  tags:
+    - level-1
+    - section-3
+    - "3.5.3"
+    - scored
+
+- name: save iptables               # save previous configuration
+  command: service iptables save    # iptables-save doesnt work on amazon Linux 2
   become: true
+ 
+- name: Enable service iptables
+  service:
+    name: iptables
+    enabled: yes
+
+
 
     
