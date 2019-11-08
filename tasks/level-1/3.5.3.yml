@@ -23,15 +23,16 @@
     - "3.5.3"
     - scored
 
-- name: save iptables               # save previous configuration
+- name: save iptables rules         # save previously performed configuration for IPv4 rules
   command: service iptables save    # iptables-save doesnt work on amazon Linux 2
   become: true
  
+- name: save ip6tables rules         # save previously performed configuration for IPv6 rules
+  command: service ip6tables save    # iptables-save doesnt work on amazon Linux 2
+  become: true
+  
 - name: Enable service iptables
   service:
     name: iptables
     enabled: yes
-
-
-
-    
+      
