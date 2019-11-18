@@ -1,6 +1,7 @@
 # Standards: 0.11
 ---
-
+# This module is purposefully executed at the end as any file created or modified when running other modules might
+# create files with permissions not desired.
 # 4.2.4 Ensure permissions on all logfiles are configured
 
 - name: 4.2.4 - Ensure permissions on all logfiles are configured
