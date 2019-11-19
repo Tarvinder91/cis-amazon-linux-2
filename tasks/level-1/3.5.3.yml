@@ -31,8 +31,13 @@
   command: service ip6tables save    # iptables-save doesnt work on amazon Linux 2
   become: true
   
-- name: Disable service iptables
+- name: Enable service iptables
   service:
     name: iptables
-    enabled: no
+    enabled: yes
+
+- name: Enable service ip6tables
+  service:
+    name: ip6tables
+    enabled: yes
       
